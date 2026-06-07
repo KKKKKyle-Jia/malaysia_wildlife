@@ -1,0 +1,119 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Malaysia's largest protected areas",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Selected national and state parks by gazetted area (km²).",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/national_parks.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Taman Negara",
+        "Crocker Range N.P.",
+        "Royal Belum State Park",
+        "Selangor State Park",
+        "Endau-Rompin N.P.",
+        "Kinabalu Park",
+        "Pulong Tau N.P.",
+        "Maliau Basin",
+        "Gunung Mulu N.P.",
+        "Danum Valley",
+        "Tawau Hills Park",
+        "Batang Ai N.P.",
+        "Lambir Hills N.P.",
+        "Gunung Gading N.P.",
+        "Niah National Park",
+        "Bako National Park",
+        "Penang National Park"
+      ],
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "field": "area_km2",
+      "type": "quantitative",
+      "title": "Area (km²)",
+      "axis": {
+        "format": "~s",
+        "tickCount": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Peninsular",
+              "Sabah",
+              "Sarawak"
+            ],
+            "range": [
+              "#2d6a4f",
+              "#d97316",
+              "#6a4c93"
+            ]
+          },
+          "legend": {
+            "title": "Region",
+            "orient": "bottom-right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Park"
+          },
+          {
+            "field": "area_km2",
+            "title": "Area (km²)",
+            "format": ","
+          },
+          {
+            "field": "type",
+            "title": "Type"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 11,
+        "color": "#1c2b21"
+      },
+      "encoding": {
+        "text": {
+          "field": "area_km2",
+          "format": ","
+        }
+      }
+    }
+  ]
+}

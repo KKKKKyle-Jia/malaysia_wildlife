@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Borneo bears the brunt",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Share of Malaysia's total tree-cover loss (2001–2020) by region.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/loss_by_region.json"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 75,
+        "stroke": "#f7f4ec",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "theta": {
+          "field": "loss_ha",
+          "type": "quantitative",
+          "stack": true
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#9e2a17",
+              "#95d5b2"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "region",
+            "title": "Region"
+          },
+          {
+            "field": "loss_ha",
+            "title": "Loss (ha)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "color": "#9e2a17",
+        "dy": -6,
+        "font": "Fraunces"
+      },
+      "encoding": {
+        "text": {
+          "value": "56%"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "color": "#5b6b5f",
+        "dy": 20
+      },
+      "encoding": {
+        "text": {
+          "value": "on Sarawak & Sabah"
+        }
+      }
+    }
+  ]
+}

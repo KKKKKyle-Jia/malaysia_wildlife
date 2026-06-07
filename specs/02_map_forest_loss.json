@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where the forest fell",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Share of each state's year-2000 tree cover lost between 2001 and 2020. Hover for detail.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 470,
+  "data": {
+    "url": "data/malaysia_states.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "properties.state",
+      "from": {
+        "data": {
+          "url": "data/treecover_loss_by_state.json"
+        },
+        "key": "state",
+        "fields": [
+          "loss_pct",
+          "loss_total_ha",
+          "extent_2001_ha",
+          "region"
+        ]
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "hover",
+      "select": {
+        "type": "point",
+        "on": "pointerover",
+        "fields": [
+          "properties.state"
+        ],
+        "clear": "pointerout"
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#f7f4ec",
+    "strokeWidth": 0.7
+  },
+  "encoding": {
+    "color": {
+      "field": "loss_pct",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "yelloworangered",
+        "domainMin": 0
+      },
+      "legend": {
+        "title": "% of forest lost",
+        "format": ".0f",
+        "orient": "bottom-left",
+        "gradientLength": 140
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "hover",
+        "value": 1
+      },
+      "value": 0.9
+    },
+    "stroke": {
+      "condition": {
+        "param": "hover",
+        "empty": false,
+        "value": "#1c2b21"
+      },
+      "value": "#f7f4ec"
+    },
+    "tooltip": [
+      {
+        "field": "properties.state",
+        "title": "State"
+      },
+      {
+        "field": "loss_pct",
+        "title": "% of 2000 cover lost",
+        "format": ".1f"
+      },
+      {
+        "field": "loss_total_ha",
+        "title": "Total lost (ha)",
+        "format": ","
+      },
+      {
+        "field": "extent_2001_ha",
+        "title": "Tree cover in 2000 (ha)",
+        "format": ","
+      }
+    ]
+  }
+}

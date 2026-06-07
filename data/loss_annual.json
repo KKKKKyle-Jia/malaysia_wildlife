@@ -1,0 +1,197 @@
+[
+  {
+    "year": 2001,
+    "type": "All tree cover",
+    "loss_ha": 332498
+  },
+  {
+    "year": 2002,
+    "type": "All tree cover",
+    "loss_ha": 312554
+  },
+  {
+    "year": 2003,
+    "type": "All tree cover",
+    "loss_ha": 183911
+  },
+  {
+    "year": 2004,
+    "type": "All tree cover",
+    "loss_ha": 351802
+  },
+  {
+    "year": 2005,
+    "type": "All tree cover",
+    "loss_ha": 375420
+  },
+  {
+    "year": 2006,
+    "type": "All tree cover",
+    "loss_ha": 333901
+  },
+  {
+    "year": 2007,
+    "type": "All tree cover",
+    "loss_ha": 405159
+  },
+  {
+    "year": 2008,
+    "type": "All tree cover",
+    "loss_ha": 367972
+  },
+  {
+    "year": 2009,
+    "type": "All tree cover",
+    "loss_ha": 622781
+  },
+  {
+    "year": 2010,
+    "type": "All tree cover",
+    "loss_ha": 430608
+  },
+  {
+    "year": 2011,
+    "type": "All tree cover",
+    "loss_ha": 463078
+  },
+  {
+    "year": 2012,
+    "type": "All tree cover",
+    "loss_ha": 628171
+  },
+  {
+    "year": 2013,
+    "type": "All tree cover",
+    "loss_ha": 333221
+  },
+  {
+    "year": 2014,
+    "type": "All tree cover",
+    "loss_ha": 645779
+  },
+  {
+    "year": 2015,
+    "type": "All tree cover",
+    "loss_ha": 454345
+  },
+  {
+    "year": 2016,
+    "type": "All tree cover",
+    "loss_ha": 565249
+  },
+  {
+    "year": 2017,
+    "type": "All tree cover",
+    "loss_ha": 483416
+  },
+  {
+    "year": 2018,
+    "type": "All tree cover",
+    "loss_ha": 437985
+  },
+  {
+    "year": 2019,
+    "type": "All tree cover",
+    "loss_ha": 395367
+  },
+  {
+    "year": 2020,
+    "type": "All tree cover",
+    "loss_ha": 268722
+  },
+  {
+    "year": 2002,
+    "type": "Primary forest",
+    "loss_ha": 61820
+  },
+  {
+    "year": 2003,
+    "type": "Primary forest",
+    "loss_ha": 60416
+  },
+  {
+    "year": 2004,
+    "type": "Primary forest",
+    "loss_ha": 113422
+  },
+  {
+    "year": 2005,
+    "type": "Primary forest",
+    "loss_ha": 114496
+  },
+  {
+    "year": 2006,
+    "type": "Primary forest",
+    "loss_ha": 113081
+  },
+  {
+    "year": 2007,
+    "type": "Primary forest",
+    "loss_ha": 142068
+  },
+  {
+    "year": 2008,
+    "type": "Primary forest",
+    "loss_ha": 139246
+  },
+  {
+    "year": 2009,
+    "type": "Primary forest",
+    "loss_ha": 235835
+  },
+  {
+    "year": 2010,
+    "type": "Primary forest",
+    "loss_ha": 139647
+  },
+  {
+    "year": 2011,
+    "type": "Primary forest",
+    "loss_ha": 161191
+  },
+  {
+    "year": 2012,
+    "type": "Primary forest",
+    "loss_ha": 244307
+  },
+  {
+    "year": 2013,
+    "type": "Primary forest",
+    "loss_ha": 106041
+  },
+  {
+    "year": 2014,
+    "type": "Primary forest",
+    "loss_ha": 230429
+  },
+  {
+    "year": 2015,
+    "type": "Primary forest",
+    "loss_ha": 154354
+  },
+  {
+    "year": 2016,
+    "type": "Primary forest",
+    "loss_ha": 185215
+  },
+  {
+    "year": 2017,
+    "type": "Primary forest",
+    "loss_ha": 162417
+  },
+  {
+    "year": 2018,
+    "type": "Primary forest",
+    "loss_ha": 144571
+  },
+  {
+    "year": 2019,
+    "type": "Primary forest",
+    "loss_ha": 120180
+  },
+  {
+    "year": 2020,
+    "type": "Primary forest",
+    "loss_ha": 72977
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Sold by the million",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Animals traded out of Southeast Asia, 1998–2007. Reptiles made up 92% of the total.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 270,
+  "data": {
+    "url": "data/wildlife_trade.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "group",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Reptiles",
+        "Birds",
+        "Mammals"
+      ],
+      "axis": {
+        "labelFontSize": 13
+      }
+    },
+    "x": {
+      "field": "animals",
+      "type": "quantitative",
+      "title": "Number of animals traded",
+      "axis": {
+        "format": "~s",
+        "tickCount": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#7f4f24",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "group",
+            "title": "Group"
+          },
+          {
+            "field": "animals",
+            "title": "Animals traded",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontWeight": "bold",
+        "fontSize": 12,
+        "color": "#1c2b21"
+      },
+      "encoding": {
+        "text": {
+          "field": "animals",
+          "format": ".3~s"
+        }
+      }
+    }
+  ]
+}

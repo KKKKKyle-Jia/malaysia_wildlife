@@ -1,0 +1,302 @@
+[
+  {
+    "state": "Johor",
+    "period": "2001\u201305",
+    "loss_ha": 177135
+  },
+  {
+    "state": "Johor",
+    "period": "2006\u201310",
+    "loss_ha": 168971
+  },
+  {
+    "state": "Johor",
+    "period": "2011\u201315",
+    "loss_ha": 203004
+  },
+  {
+    "state": "Johor",
+    "period": "2016\u201320",
+    "loss_ha": 174872
+  },
+  {
+    "state": "Perlis",
+    "period": "2001\u201305",
+    "loss_ha": 821
+  },
+  {
+    "state": "Perlis",
+    "period": "2006\u201310",
+    "loss_ha": 684
+  },
+  {
+    "state": "Perlis",
+    "period": "2011\u201315",
+    "loss_ha": 2173
+  },
+  {
+    "state": "Perlis",
+    "period": "2016\u201320",
+    "loss_ha": 3520
+  },
+  {
+    "state": "Penang",
+    "period": "2001\u201305",
+    "loss_ha": 1695
+  },
+  {
+    "state": "Penang",
+    "period": "2006\u201310",
+    "loss_ha": 2933
+  },
+  {
+    "state": "Penang",
+    "period": "2011\u201315",
+    "loss_ha": 2926
+  },
+  {
+    "state": "Penang",
+    "period": "2016\u201320",
+    "loss_ha": 2737
+  },
+  {
+    "state": "Putrajaya",
+    "period": "2001\u201305",
+    "loss_ha": 215
+  },
+  {
+    "state": "Putrajaya",
+    "period": "2006\u201310",
+    "loss_ha": 138
+  },
+  {
+    "state": "Putrajaya",
+    "period": "2011\u201315",
+    "loss_ha": 88
+  },
+  {
+    "state": "Putrajaya",
+    "period": "2016\u201320",
+    "loss_ha": 219
+  },
+  {
+    "state": "Sabah",
+    "period": "2001\u201305",
+    "loss_ha": 314324
+  },
+  {
+    "state": "Sabah",
+    "period": "2006\u201310",
+    "loss_ha": 422932
+  },
+  {
+    "state": "Sabah",
+    "period": "2011\u201315",
+    "loss_ha": 482274
+  },
+  {
+    "state": "Sabah",
+    "period": "2016\u201320",
+    "loss_ha": 452964
+  },
+  {
+    "state": "Sarawak",
+    "period": "2001\u201305",
+    "loss_ha": 479261
+  },
+  {
+    "state": "Sarawak",
+    "period": "2006\u201310",
+    "loss_ha": 896521
+  },
+  {
+    "state": "Sarawak",
+    "period": "2011\u201315",
+    "loss_ha": 973624
+  },
+  {
+    "state": "Sarawak",
+    "period": "2016\u201320",
+    "loss_ha": 685615
+  },
+  {
+    "state": "Selangor",
+    "period": "2001\u201305",
+    "loss_ha": 38775
+  },
+  {
+    "state": "Selangor",
+    "period": "2006\u201310",
+    "loss_ha": 44734
+  },
+  {
+    "state": "Selangor",
+    "period": "2011\u201315",
+    "loss_ha": 34467
+  },
+  {
+    "state": "Selangor",
+    "period": "2016\u201320",
+    "loss_ha": 42151
+  },
+  {
+    "state": "Terengganu",
+    "period": "2001\u201305",
+    "loss_ha": 50387
+  },
+  {
+    "state": "Terengganu",
+    "period": "2006\u201310",
+    "loss_ha": 63770
+  },
+  {
+    "state": "Terengganu",
+    "period": "2011\u201315",
+    "loss_ha": 73477
+  },
+  {
+    "state": "Terengganu",
+    "period": "2016\u201320",
+    "loss_ha": 77901
+  },
+  {
+    "state": "Kedah",
+    "period": "2001\u201305",
+    "loss_ha": 32628
+  },
+  {
+    "state": "Kedah",
+    "period": "2006\u201310",
+    "loss_ha": 45489
+  },
+  {
+    "state": "Kedah",
+    "period": "2011\u201315",
+    "loss_ha": 53005
+  },
+  {
+    "state": "Kedah",
+    "period": "2016\u201320",
+    "loss_ha": 65380
+  },
+  {
+    "state": "Kelantan",
+    "period": "2001\u201305",
+    "loss_ha": 51587
+  },
+  {
+    "state": "Kelantan",
+    "period": "2006\u201310",
+    "loss_ha": 113029
+  },
+  {
+    "state": "Kelantan",
+    "period": "2011\u201315",
+    "loss_ha": 137774
+  },
+  {
+    "state": "Kelantan",
+    "period": "2016\u201320",
+    "loss_ha": 113950
+  },
+  {
+    "state": "Kuala Lumpur",
+    "period": "2001\u201305",
+    "loss_ha": 454
+  },
+  {
+    "state": "Kuala Lumpur",
+    "period": "2006\u201310",
+    "loss_ha": 337
+  },
+  {
+    "state": "Kuala Lumpur",
+    "period": "2011\u201315",
+    "loss_ha": 175
+  },
+  {
+    "state": "Kuala Lumpur",
+    "period": "2016\u201320",
+    "loss_ha": 250
+  },
+  {
+    "state": "Melaka",
+    "period": "2001\u201305",
+    "loss_ha": 12754
+  },
+  {
+    "state": "Melaka",
+    "period": "2006\u201310",
+    "loss_ha": 10994
+  },
+  {
+    "state": "Melaka",
+    "period": "2011\u201315",
+    "loss_ha": 15254
+  },
+  {
+    "state": "Melaka",
+    "period": "2016\u201320",
+    "loss_ha": 20272
+  },
+  {
+    "state": "Negeri Sembilan",
+    "period": "2001\u201305",
+    "loss_ha": 76349
+  },
+  {
+    "state": "Negeri Sembilan",
+    "period": "2006\u201310",
+    "loss_ha": 48820
+  },
+  {
+    "state": "Negeri Sembilan",
+    "period": "2011\u201315",
+    "loss_ha": 80126
+  },
+  {
+    "state": "Negeri Sembilan",
+    "period": "2016\u201320",
+    "loss_ha": 56943
+  },
+  {
+    "state": "Pahang",
+    "period": "2001\u201305",
+    "loss_ha": 238978
+  },
+  {
+    "state": "Pahang",
+    "period": "2006\u201310",
+    "loss_ha": 235294
+  },
+  {
+    "state": "Pahang",
+    "period": "2011\u201315",
+    "loss_ha": 343425
+  },
+  {
+    "state": "Pahang",
+    "period": "2016\u201320",
+    "loss_ha": 329233
+  },
+  {
+    "state": "Perak",
+    "period": "2001\u201305",
+    "loss_ha": 80717
+  },
+  {
+    "state": "Perak",
+    "period": "2006\u201310",
+    "loss_ha": 105608
+  },
+  {
+    "state": "Perak",
+    "period": "2011\u201315",
+    "loss_ha": 122461
+  },
+  {
+    "state": "Perak",
+    "period": "2016\u201320",
+    "loss_ha": 124493
+  }
+]

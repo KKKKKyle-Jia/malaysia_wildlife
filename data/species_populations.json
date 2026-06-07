@@ -1,0 +1,20 @@
+[
+  {
+    "species": "Malayan tiger",
+    "population": 150,
+    "status": "CR",
+    "note": "Peninsular Malaysia only"
+  },
+  {
+    "species": "Borneo pygmy elephant",
+    "population": 1500,
+    "status": "EN",
+    "note": "Sabah"
+  },
+  {
+    "species": "Bornean orangutan",
+    "population": 104000,
+    "status": "CR",
+    "note": "Borneo (shared with Indonesia)"
+  }
+]

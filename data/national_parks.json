@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Taman Negara",
+    "region": "Peninsular",
+    "lat": 4.4,
+    "lng": 102.4,
+    "area_km2": 4343,
+    "type": "National Park"
+  },
+  {
+    "name": "Royal Belum State Park",
+    "region": "Peninsular",
+    "lat": 5.55,
+    "lng": 101.4,
+    "area_km2": 1175,
+    "type": "State Park"
+  },
+  {
+    "name": "Selangor State Park",
+    "region": "Peninsular",
+    "lat": 3.55,
+    "lng": 101.65,
+    "area_km2": 1080,
+    "type": "State Park"
+  },
+  {
+    "name": "Endau-Rompin N.P.",
+    "region": "Peninsular",
+    "lat": 2.5,
+    "lng": 103.4,
+    "area_km2": 870,
+    "type": "National Park"
+  },
+  {
+    "name": "Penang National Park",
+    "region": "Peninsular",
+    "lat": 5.45,
+    "lng": 100.18,
+    "area_km2": 26,
+    "type": "National Park"
+  },
+  {
+    "name": "Kinabalu Park",
+    "region": "Sabah",
+    "lat": 6.08,
+    "lng": 116.55,
+    "area_km2": 754,
+    "type": "National Park (UNESCO)"
+  },
+  {
+    "name": "Crocker Range N.P.",
+    "region": "Sabah",
+    "lat": 5.4,
+    "lng": 116.1,
+    "area_km2": 1399,
+    "type": "National Park"
+  },
+  {
+    "name": "Maliau Basin",
+    "region": "Sabah",
+    "lat": 4.75,
+    "lng": 116.95,
+    "area_km2": 588,
+    "type": "Conservation Area"
+  },
+  {
+    "name": "Danum Valley",
+    "region": "Sabah",
+    "lat": 4.97,
+    "lng": 117.8,
+    "area_km2": 438,
+    "type": "Conservation Area"
+  },
+  {
+    "name": "Tawau Hills Park",
+    "region": "Sabah",
+    "lat": 4.4,
+    "lng": 117.9,
+    "area_km2": 280,
+    "type": "Park"
+  },
+  {
+    "name": "Pulong Tau N.P.",
+    "region": "Sarawak",
+    "lat": 3.75,
+    "lng": 115.4,
+    "area_km2": 698,
+    "type": "National Park"
+  },
+  {
+    "name": "Gunung Mulu N.P.",
+    "region": "Sarawak",
+    "lat": 4.05,
+    "lng": 114.92,
+    "area_km2": 529,
+    "type": "National Park (UNESCO)"
+  },
+  {
+    "name": "Batang Ai N.P.",
+    "region": "Sarawak",
+    "lat": 1.18,
+    "lng": 112.1,
+    "area_km2": 240,
+    "type": "National Park"
+  },
+  {
+    "name": "Lambir Hills N.P.",
+    "region": "Sarawak",
+    "lat": 4.2,
+    "lng": 114.05,
+    "area_km2": 69,
+    "type": "National Park"
+  },
+  {
+    "name": "Gunung Gading N.P.",
+    "region": "Sarawak",
+    "lat": 1.69,
+    "lng": 109.85,
+    "area_km2": 41,
+    "type": "National Park"
+  },
+  {
+    "name": "Niah National Park",
+    "region": "Sarawak",
+    "lat": 3.82,
+    "lng": 113.78,
+    "area_km2": 31,
+    "type": "National Park"
+  },
+  {
+    "name": "Bako National Park",
+    "region": "Sarawak",
+    "lat": 1.72,
+    "lng": 110.47,
+    "area_km2": 27,
+    "type": "National Park"
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Two decades of loss",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Annual tree-cover loss and primary-forest loss in Malaysia, 2001–2020 (hectares).",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 340,
+  "data": {
+    "url": "data/loss_annual.json"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.55,
+        "line": {
+          "strokeWidth": 2
+        },
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": "Year",
+          "axis": {
+            "format": "d",
+            "tickCount": 10
+          },
+          "scale": {
+            "domain": [
+              2001,
+              2020
+            ],
+            "nice": false
+          }
+        },
+        "y": {
+          "field": "loss_ha",
+          "type": "quantitative",
+          "stack": null,
+          "title": "Hectares lost",
+          "axis": {
+            "format": "~s"
+          }
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "All tree cover",
+              "Primary forest"
+            ],
+            "range": [
+              "#74c69d",
+              "#1b4332"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "type",
+            "title": "Type"
+          },
+          {
+            "field": "loss_ha",
+            "title": "Loss (ha)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2014,
+            "loss_ha": 645779,
+            "note": "Peak: 645,779 ha in 2014"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#1c2b21",
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2013.8,
+            "loss_ha": 645779,
+            "note": "Peak: 645,779 ha (2014)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": -6,
+        "fontStyle": "italic",
+        "color": "#1c2b21",
+        "fontSize": 11
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "loss_ha",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note"
+        }
+      }
+    }
+  ]
+}

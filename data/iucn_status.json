@@ -1,0 +1,20 @@
+[
+  {
+    "category": "Vulnerable",
+    "code": "VU",
+    "order": 1,
+    "count": 451
+  },
+  {
+    "category": "Endangered",
+    "code": "EN",
+    "order": 2,
+    "count": 205
+  },
+  {
+    "category": "Critically Endangered",
+    "code": "CR",
+    "order": 3,
+    "count": 105
+  }
+]

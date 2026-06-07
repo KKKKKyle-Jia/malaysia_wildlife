@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "A megadiverse nation",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Described vertebrate species in Malaysia, by group. Plus ~15,000 plant and 150,000+ invertebrate species.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/species_richness.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "group",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Birds",
+        "Reptiles",
+        "Freshwater fish",
+        "Mammals",
+        "Amphibians"
+      ],
+      "axis": {
+        "labelFontSize": 13
+      }
+    },
+    "x": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Number of described species",
+      "axis": {
+        "grid": true,
+        "tickCount": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#2d6a4f",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "group",
+            "title": "Group"
+          },
+          {
+            "field": "count",
+            "title": "Species",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "color": "#1c2b21",
+        "fontWeight": "bold",
+        "fontSize": 12
+      },
+      "encoding": {
+        "text": {
+          "field": "count",
+          "format": ","
+        }
+      }
+    }
+  ]
+}

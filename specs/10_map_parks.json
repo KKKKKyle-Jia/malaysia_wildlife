@@ -1,0 +1,111 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The last refuges",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Malaysia's major national parks and protected areas, sized by area. Hover for detail.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 470,
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/malaysia_states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e3eae0",
+        "stroke": "white",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "url": "data/national_parks.json"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.72,
+        "stroke": "#1c2b21",
+        "strokeWidth": 0.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lng",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "area_km2",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              40,
+              1600
+            ]
+          },
+          "legend": {
+            "title": "Area (km²)",
+            "format": ","
+          }
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Peninsular",
+              "Sabah",
+              "Sarawak"
+            ],
+            "range": [
+              "#2d6a4f",
+              "#d97316",
+              "#6a4c93"
+            ]
+          },
+          "legend": {
+            "title": "Region"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "Park"
+          },
+          {
+            "field": "type",
+            "title": "Type"
+          },
+          {
+            "field": "area_km2",
+            "title": "Area (km²)",
+            "format": ","
+          },
+          {
+            "field": "region",
+            "title": "Region"
+          }
+        ]
+      }
+    }
+  ]
+}

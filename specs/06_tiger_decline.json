@@ -1,0 +1,103 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "The vanishing tiger",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Estimated wild Malayan tigers: from ~3,000 in the 1950s to fewer than 150 today.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 330,
+  "data": {
+    "url": "data/tiger_decline.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "era",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelFontSize": 14,
+        "labelFontWeight": "bold"
+      }
+    },
+    "y": {
+      "field": "tigers",
+      "type": "quantitative",
+      "title": "Wild tigers",
+      "scale": {
+        "domain": [
+          0,
+          3200
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.25,
+        "color": "#d97316",
+        "line": {
+          "color": "#9e2a17",
+          "strokeWidth": 3
+        },
+        "interpolate": "monotone"
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 200,
+        "color": "#9e2a17"
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -20,
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#9e2a17"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "era": "2022",
+            "tigers": 1500,
+            "note": "↓ a 95% collapse in 70 years"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontStyle": "italic",
+        "fontSize": 12,
+        "color": "#1c2b21"
+      },
+      "encoding": {
+        "text": {
+          "field": "note"
+        }
+      }
+    }
+  ]
+}

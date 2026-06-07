@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Counting what's left",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Estimated wild populations. Note: the axis is logarithmic — each gridline is ten times the last.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 270,
+  "data": {
+    "url": "data/species_populations.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "species",
+      "type": "nominal",
+      "sort": [
+        "Bornean orangutan",
+        "Borneo pygmy elephant",
+        "Malayan tiger"
+      ],
+      "title": null,
+      "axis": {
+        "labelFontSize": 13
+      }
+    },
+    "x": {
+      "field": "population",
+      "type": "quantitative",
+      "scale": {
+        "type": "log",
+        "domain": [
+          100,
+          200000
+        ]
+      },
+      "title": "Estimated wild population (log scale)",
+      "axis": {
+        "format": "~s"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 300,
+        "opacity": 0.9,
+        "stroke": "#1c2b21",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "CR",
+              "EN"
+            ],
+            "range": [
+              "#9e2a17",
+              "#d97316"
+            ]
+          },
+          "legend": {
+            "title": "IUCN status",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "species",
+            "title": "Species"
+          },
+          {
+            "field": "population",
+            "title": "Wild population",
+            "format": ","
+          },
+          {
+            "field": "status",
+            "title": "IUCN status"
+          },
+          {
+            "field": "note",
+            "title": "Range"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 14,
+        "fontWeight": "bold",
+        "fontSize": 12,
+        "color": "#1c2b21"
+      },
+      "encoding": {
+        "text": {
+          "field": "population",
+          "format": ","
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "When and where the trees were cleared",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Tree-cover loss (ha) by state and five-year period, 2001–2020. States ordered by total loss.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 430,
+  "data": {
+    "url": "data/treecover_loss_heatmap.json"
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Sarawak",
+        "Sabah",
+        "Pahang",
+        "Johor",
+        "Perak",
+        "Kelantan",
+        "Terengganu",
+        "Negeri Sembilan",
+        "Kedah",
+        "Selangor",
+        "Melaka",
+        "Penang",
+        "Perlis",
+        "Kuala Lumpur",
+        "Putrajaya"
+      ],
+      "axis": {
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "field": "period",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "orient": "top"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#f7f4ec",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "loss_ha",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "yelloworangered",
+            "type": "sqrt"
+          },
+          "legend": {
+            "title": "Loss (ha)",
+            "format": "~s",
+            "gradientLength": 140
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "period",
+            "title": "Period"
+          },
+          {
+            "field": "loss_ha",
+            "title": "Loss (ha)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "round(datum.loss_ha/1000)",
+          "as": "kha"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 9
+      },
+      "encoding": {
+        "text": {
+          "field": "kha"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.loss_ha > 200000",
+            "value": "white"
+          },
+          "value": "#5b3a29"
+        }
+      }
+    }
+  ]
+}

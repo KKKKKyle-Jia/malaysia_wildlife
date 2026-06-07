@@ -1,0 +1,14 @@
+[
+  {
+    "group": "Reptiles",
+    "animals": 17430000
+  },
+  {
+    "group": "Birds",
+    "animals": 1040000
+  },
+  {
+    "group": "Mammals",
+    "animals": 388000
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "761 animals on the brink",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Threatened animal species in Malaysia by IUCN Red List category, 2024.",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 310,
+  "data": {
+    "url": "data/iucn_status.json"
+  },
+  "encoding": {
+    "x": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Vulnerable",
+        "Endangered",
+        "Critically Endangered"
+      ],
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Number of animal species"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "order",
+          "type": "ordinal",
+          "scale": {
+            "range": [
+              "#f0c419",
+              "#e8772e",
+              "#9e2a17"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "category",
+            "title": "Category"
+          },
+          {
+            "field": "count",
+            "title": "Species",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -8,
+        "fontWeight": "bold",
+        "fontSize": 13,
+        "color": "#1c2b21"
+      },
+      "encoding": {
+        "text": {
+          "field": "count",
+          "format": ","
+        }
+      }
+    }
+  ]
+}

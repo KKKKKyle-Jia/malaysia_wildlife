@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "This is what 150 looks like",
+    "anchor": "start",
+    "fontSize": 19,
+    "font": "Fraunces",
+    "color": "#1c2b21",
+    "offset": 12,
+    "subtitle": "Each tiger below is one of the fewer than 150 Malayan tigers left in the wild (2020 National Tiger Survey).",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#5b6b5f",
+    "subtitleFont": "Spectral",
+    "subtitlePadding": 6
+  },
+  "width": "container",
+  "height": 270,
+  "data": {
+    "sequence": {
+      "start": 0,
+      "stop": 150,
+      "step": 1,
+      "as": "i"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "floor(datum.i/25)",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.i % 25",
+      "as": "col"
+    }
+  ],
+  "mark": {
+    "type": "text",
+    "baseline": "middle",
+    "fontSize": 16
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {
+        "reverse": true
+      }
+    },
+    "text": {
+      "value": "🐅"
+    },
+    "tooltip": {
+      "value": "1 of fewer than 150 wild Malayan tigers"
+    }
+  }
+}

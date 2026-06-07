@@ -1,0 +1,22 @@
+[
+  {
+    "group": "Birds",
+    "count": 742
+  },
+  {
+    "group": "Reptiles",
+    "count": 567
+  },
+  {
+    "group": "Freshwater fish",
+    "count": 449
+  },
+  {
+    "group": "Mammals",
+    "count": 306
+  },
+  {
+    "group": "Amphibians",
+    "count": 242
+  }
+]

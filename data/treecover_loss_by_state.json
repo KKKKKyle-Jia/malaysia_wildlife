@@ -1,0 +1,107 @@
+[
+  {
+    "state": "Johor",
+    "extent_2001_ha": 1593783,
+    "loss_total_ha": 723982,
+    "loss_pct": 45.4,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Perlis",
+    "extent_2001_ha": 27367,
+    "loss_total_ha": 7198,
+    "loss_pct": 26.3,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Penang",
+    "extent_2001_ha": 46677,
+    "loss_total_ha": 10290,
+    "loss_pct": 22.0,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Putrajaya",
+    "extent_2001_ha": 1583,
+    "loss_total_ha": 660,
+    "loss_pct": 41.7,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Sabah",
+    "extent_2001_ha": 6684138,
+    "loss_total_ha": 1672494,
+    "loss_pct": 25.0,
+    "region": "Borneo (East Malaysia)"
+  },
+  {
+    "state": "Sarawak",
+    "extent_2001_ha": 11643005,
+    "loss_total_ha": 3035022,
+    "loss_pct": 26.1,
+    "region": "Borneo (East Malaysia)"
+  },
+  {
+    "state": "Selangor",
+    "extent_2001_ha": 564558,
+    "loss_total_ha": 160126,
+    "loss_pct": 28.4,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Terengganu",
+    "extent_2001_ha": 1106226,
+    "loss_total_ha": 265536,
+    "loss_pct": 24.0,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Kedah",
+    "extent_2001_ha": 676030,
+    "loss_total_ha": 196502,
+    "loss_pct": 29.1,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Kelantan",
+    "extent_2001_ha": 1344075,
+    "loss_total_ha": 416340,
+    "loss_pct": 31.0,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Kuala Lumpur",
+    "extent_2001_ha": 4827,
+    "loss_total_ha": 1216,
+    "loss_pct": 25.2,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Melaka",
+    "extent_2001_ha": 112675,
+    "loss_total_ha": 59274,
+    "loss_pct": 52.6,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Negeri Sembilan",
+    "extent_2001_ha": 559821,
+    "loss_total_ha": 262238,
+    "loss_pct": 46.8,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Pahang",
+    "extent_2001_ha": 3295418,
+    "loss_total_ha": 1146930,
+    "loss_pct": 34.8,
+    "region": "Peninsular Malaysia"
+  },
+  {
+    "state": "Perak",
+    "extent_2001_ha": 1766056,
+    "loss_total_ha": 433279,
+    "loss_pct": 24.5,
+    "region": "Peninsular Malaysia"
+  }
+]

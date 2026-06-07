@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Malaysia's Wild Heritage at Risk</title>
+<meta name="description" content="An interactive data story on deforestation and endangered wildlife in Malaysia." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800;9..144,900&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Vega / Vega-Lite -->
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<style>
+  :root{
+    --bg:#f7f4ec; --paper:#fffdf8; --ink:#1c2b21; --muted:#5b6b5f;
+    --forest:#2d6a4f; --forest-deep:#1b4332; --leaf:#74c69d;
+    --tiger:#d97316; --danger:#9e2a17; --gold:#c79a3a; --line:#e3ddcf;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Spectral",Georgia,serif; font-size:18px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 12% -5%, rgba(45,106,79,.10), transparent 45%),
+      radial-gradient(circle at 92% 8%, rgba(217,115,22,.08), transparent 40%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px}
+  a{color:var(--forest)}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:88px 0 56px; position:relative; overflow:hidden;
+  }
+  .eyebrow{
+    font-family:"Spectral"; font-weight:600; letter-spacing:.22em;
+    text-transform:uppercase; font-size:12.5px; color:var(--forest);
+    margin:0 0 22px;
+  }
+  h1{
+    font-family:"Fraunces"; font-weight:900; font-size:clamp(2.6rem,7vw,5rem);
+    line-height:1.02; margin:0 0 24px; letter-spacing:-.015em;
+    color:var(--forest-deep);
+  }
+  h1 .em{color:var(--danger); font-style:italic}
+  .standfirst{
+    font-size:clamp(1.05rem,2.1vw,1.32rem); max-width:38ch; color:#33433a;
+    margin:0 0 40px;
+  }
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+    border-top:2px solid var(--ink); padding-top:26px; margin-top:8px;
+  }
+  .stat .num{
+    font-family:"Fraunces"; font-weight:800; font-size:clamp(1.7rem,3.6vw,2.5rem);
+    line-height:1; color:var(--tiger);
+  }
+  .stat:nth-child(2) .num{color:var(--danger)}
+  .stat:nth-child(3) .num{color:var(--forest)}
+  .stat:nth-child(4) .num{color:var(--gold)}
+  .stat .lab{font-size:13.5px; color:var(--muted); margin-top:9px; line-height:1.35}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:30px 0 8px}
+  .sec-head{margin:46px 0 6px}
+  .sec-no{
+    font-family:"Fraunces"; font-weight:600; font-style:italic;
+    color:var(--tiger); font-size:15px; letter-spacing:.04em;
+  }
+  h2{
+    font-family:"Fraunces"; font-weight:800; font-size:clamp(1.7rem,4vw,2.6rem);
+    line-height:1.08; margin:6px 0 14px; color:var(--forest-deep);
+    letter-spacing:-.01em;
+  }
+  .lede{max-width:64ch; color:#34433b; margin:0 0 14px}
+  .lede strong{color:var(--ink)}
+
+  /* ---------- FIGURES ---------- */
+  figure{margin:26px 0 10px}
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    padding:22px 22px 18px; box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 40px -28px rgba(28,43,33,.35);
+  }
+  .viz{width:100%; min-height:120px}
+  figcaption{
+    font-size:14px; color:var(--muted); margin-top:14px; line-height:1.55;
+    border-top:1px dotted var(--line); padding-top:12px;
+  }
+  figcaption .src{
+    display:block; font-size:11.5px; letter-spacing:.04em; color:#8a9384;
+    margin-top:7px; text-transform:uppercase;
+  }
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+  .grid-2 figure{margin:0}
+
+  /* pull-quote / highlight */
+  .pull{
+    font-family:"Fraunces"; font-weight:500; font-style:italic;
+    font-size:clamp(1.3rem,3vw,1.8rem); line-height:1.3; color:var(--forest-deep);
+    border-left:4px solid var(--tiger); padding:6px 0 6px 22px; margin:34px 0;
+    max-width:52ch;
+  }
+
+  /* leaf divider */
+  .divider{display:flex; align-items:center; gap:16px; margin:54px 0 8px; color:var(--leaf)}
+  .divider::before,.divider::after{content:""; height:1px; background:var(--line); flex:1}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    margin-top:70px; background:var(--forest-deep); color:#e8efe7;
+    padding:54px 0 60px;
+  }
+  footer .wrap{max-width:1080px}
+  footer h3{font-family:"Fraunces"; font-weight:700; font-size:1.4rem; margin:0 0 6px; color:#fff}
+  footer p,footer li{font-size:14.5px; line-height:1.65; color:#cdd9cd}
+  footer a{color:var(--leaf)}
+  .meta-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:34px; margin-top:26px}
+  footer h4{font-family:"Spectral"; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+    font-size:12px; color:var(--gold); margin:0 0 10px}
+  footer ul{margin:0; padding-left:18px}
+  footer li{margin-bottom:8px}
+  .colophon{border-top:1px solid rgba(255,255,255,.16); margin-top:34px; padding-top:20px;
+    font-size:13px; color:#aebcae}
+
+  /* ---------- entrance animation ---------- */
+  .fade{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
+  .fade.in{opacity:1; transform:none}
+
+  @media(max-width:760px){
+    body{font-size:16.5px}
+    .wrap{padding:0 18px}
+    .stats{grid-template-columns:repeat(2,1fr); gap:22px 18px}
+    .grid-2{grid-template-columns:1fr}
+    .meta-grid{grid-template-columns:1fr; gap:24px}
+    header.hero{padding:60px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow fade">An interactive data story</p>
+    <h1 class="fade">Malaysia's Wild<br>Heritage <span class="em">at Risk</span></h1>
+    <p class="standfirst fade">Malaysia is one of just 17 &ldquo;megadiverse&rdquo; nations on Earth &mdash; home to tigers, orangutans and rainforests older than the Himalayas. Yet in a single generation, much of that natural wealth has been logged, burned and pushed toward extinction. Here is the story, told in twelve charts.</p>
+    <div class="stats fade">
+      <div class="stat"><div class="num">28.5%</div><div class="lab">of tree cover lost since 2001</div></div>
+      <div class="stat"><div class="num">&lt;150</div><div class="lab">Malayan tigers left in the wild</div></div>
+      <div class="stat"><div class="num">761</div><div class="lab">animal species now threatened</div></div>
+      <div class="stat"><div class="num">56%</div><div class="lab">of forest loss on Borneo</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- SECTION 1 -->
+  <section>
+    <div class="sec-head fade">
+      <span class="sec-no">01 — The setting</span>
+      <h2>A megadiverse nation</h2>
+    </div>
+    <p class="lede fade">Straddling the equator, Malaysia's rainforests have been evolving for some <strong>130 million years</strong> &mdash; older than the Amazon. That deep history has produced staggering variety: hundreds of mammals, birds, reptiles, amphibians and fish, alongside an estimated 15,000 plant species. The country ranks <strong>12th in the world</strong> on the National Biodiversity Index. To understand what is being lost, first look at how much there is.</p>
+    <figure class="fade">
+      <div class="card"><div id="v01" class="viz"></div></div>
+      <figcaption>Birds and reptiles lead Malaysia's vertebrate diversity; these figures exclude the ~15,000 plant and 150,000+ invertebrate species also recorded.
+        <span class="src">Source: Malaysia Biodiversity Information System (MyBIS) · 5th National Report to the CBD</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="divider fade">&#127807;</div>
+
+  <!-- SECTION 2 -->
+  <section>
+    <div class="sec-head fade">
+      <span class="sec-no">02 — The habitat</span>
+      <h2>The vanishing forests</h2>
+    </div>
+    <p class="lede fade">At the 1992 Rio Earth Summit, Malaysia pledged to keep at least <strong>50% of its land under forest</strong>. But satellites tell a sobering story. Between 2001 and 2020 the country lost <strong>8.4 million hectares</strong> of tree cover &mdash; about <strong>28.5%</strong> of what stood in the year 2000. The map below colours each state by the <em>share</em> of its forest that disappeared. The surprise: the heaviest proportional losses are not in the vast forests of Borneo, but in the small, developed states of the west coast.</p>
+    <figure class="fade">
+      <div class="card"><div id="v02" class="viz"></div></div>
+      <figcaption>Melaka (52.6%), Negeri Sembilan (46.8%) and Johor (45.4%) lost the largest <em>shares</em> of their year-2000 tree cover &mdash; long-developed states where little forest remained to begin with.
+        <span class="src">Source: Hansen / UMD / Google / USGS / NASA, via Global Forest Watch &amp; Mongabay · 30% canopy threshold</span></figcaption>
+    </figure>
+
+    <p class="lede fade">Loss was not steady. It surged with palm-oil and timber expansion, peaking in <strong>2014</strong> when Malaysia cleared nearly <strong>646,000 hectares</strong> in a single year. Primary (old-growth) forest &mdash; the irreplaceable kind &mdash; made up roughly a third of that loss.</p>
+    <figure class="fade">
+      <div class="card"><div id="v03" class="viz"></div></div>
+      <figcaption>Annual tree-cover and primary-forest loss, 2001&ndash;2020. Even as overall loss eased after 2016, the destruction of ancient primary forest continued.
+        <span class="src">Source: Global Forest Watch (Hansen/UMD) via Mongabay</span></figcaption>
+    </figure>
+
+    <figure class="fade">
+      <div class="card"><div id="v04" class="viz"></div></div>
+      <figcaption>The same loss, broken down by state and five-year period. Sarawak alone accounts for more than a third of all national loss; together with Sabah and Pahang it dominates every era.
+        <span class="src">Source: Global Forest Watch (Hansen/UMD) via Mongabay</span></figcaption>
+    </figure>
+
+    <p class="pull fade">Two states on the island of Borneo &mdash; Sarawak and Sabah &mdash; account for well over half of everything Malaysia has lost.</p>
+
+    <figure class="fade">
+      <div class="card"><div id="v05" class="viz"></div></div>
+      <figcaption>Of 8.4 million hectares of tree cover lost nationwide (2001&ndash;2020), 56% fell in Sarawak and Sabah &mdash; home to Malaysia's richest and most ancient forests.
+        <span class="src">Source: Global Forest Watch (Hansen/UMD) via Mongabay</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="divider fade">&#127807;</div>
+
+  <!-- SECTION 3 -->
+  <section>
+    <div class="sec-head fade">
+      <span class="sec-no">03 — The casualties</span>
+      <h2>Species on the brink</h2>
+    </div>
+    <p class="lede fade">When forests fall, their inhabitants follow. No animal tells this story more starkly than the <strong>Malayan tiger</strong> &mdash; the creature on Malaysia's own coat of arms. In the 1950s, around 3,000 roamed the peninsula. Today, after decades of habitat loss and poaching, fewer than 150 survive in the wild.</p>
+    <figure class="fade">
+      <div class="card"><div id="v06" class="viz"></div></div>
+      <figcaption>A 95% collapse in roughly seventy years. The 2020 National Tiger Survey confirmed fewer than 150 individuals remain.
+        <span class="src">Source: WWF-Malaysia · 2020 National Tiger Survey (DWNP &amp; partners)</span></figcaption>
+    </figure>
+
+    <p class="lede fade">It is hard to picture how few that is. So here is every one of them &mdash; each tiger below stands for one wild Malayan tiger left alive.</p>
+    <figure class="fade">
+      <div class="card"><div id="v09" class="viz"></div></div>
+      <figcaption>Fewer than 150 wild Malayan tigers remain &mdash; an entire national population that would fit inside a single school hall.
+        <span class="src">Source: 2020 National Tiger Survey · WWF-Malaysia</span></figcaption>
+    </figure>
+
+    <p class="lede fade">The tiger is not alone. As of 2024 the IUCN Red List classes <strong>761 of Malaysia's animal species</strong> as threatened &mdash; vulnerable, endangered or critically endangered &mdash; one of the highest tallies in Asia.</p>
+    <div class="grid-2">
+      <figure class="fade">
+        <div class="card"><div id="v07" class="viz"></div></div>
+        <figcaption>Threatened animal species by IUCN category, 2024.
+          <span class="src">Source: IUCN Red List, via Statista</span></figcaption>
+      </figure>
+      <figure class="fade">
+        <div class="card"><div id="v08" class="viz"></div></div>
+        <figcaption>Bornean orangutans still number in the tens of thousands, but are shared with Indonesia and still Critically Endangered.
+          <span class="src">Source: WWF-Malaysia · IUCN</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="divider fade">&#127807;</div>
+
+  <!-- SECTION 4 -->
+  <section>
+    <div class="sec-head fade">
+      <span class="sec-no">04 — The defence</span>
+      <h2>The last refuges</h2>
+    </div>
+    <p class="lede fade">Against this tide stand Malaysia's protected areas &mdash; a network of national and state parks where wildlife can, in principle, endure. They range from the <strong>4,343&nbsp;km&sup2;</strong> expanse of Taman Negara, one of the world's oldest rainforests, to UNESCO World Heritage sites like Kinabalu Park and Gunung Mulu.</p>
+    <figure class="fade">
+      <div class="card"><div id="v10" class="viz"></div></div>
+      <figcaption>Major terrestrial parks and conservation areas, sized by gazetted area and coloured by region. Borneo holds the largest contiguous reserves.
+        <span class="src">Source: Dept. of Wildlife &amp; National Parks (DWNP) · Sabah Parks · Sarawak Forestry Corporation</span></figcaption>
+    </figure>
+    <figure class="fade">
+      <div class="card"><div id="v11" class="viz"></div></div>
+      <figcaption>Taman Negara dwarfs all others, but many vital parks &mdash; Bako, Niah, Penang &mdash; are tiny islands of habitat in a sea of plantation.
+        <span class="src">Source: DWNP · Sabah Parks · Sarawak Forestry Corporation</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="divider fade">&#127807;</div>
+
+  <!-- SECTION 5 -->
+  <section>
+    <div class="sec-head fade">
+      <span class="sec-no">05 — The other threat</span>
+      <h2>Sold by the million</h2>
+    </div>
+    <p class="lede fade">Habitat loss is only half the danger. Southeast Asia is a global hub for the <strong>illegal wildlife trade</strong>, and Malaysia sits at its centre. Over just ten years (1998&ndash;2007), the region exported tens of millions of wild animals &mdash; the vast majority taken straight from the forest.</p>
+    <figure class="fade">
+      <div class="card"><div id="v12" class="viz"></div></div>
+      <figcaption>Reptiles made up about 92% of all animals traded out of Southeast Asia in this period &mdash; some 17.4 million creatures.
+        <span class="src">Source: TRAFFIC, compiled via malaysianwildlife.org</span></figcaption>
+    </figure>
+
+    <p class="pull fade">Malaysia's wild heritage took 130 million years to build. Most of what we have lost vanished in a single human lifetime &mdash; and what remains is still being decided now.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>About this visualisation</h3>
+    <p>An interactive data story combining two decades of satellite forest-loss data with conservation records, to show how Malaysia's extraordinary biodiversity is being eroded &mdash; and where it still survives.</p>
+
+    <div class="meta-grid">
+      <div>
+        <h4>Data sources</h4>
+        <ul>
+          <li><strong>Forest &amp; tree-cover loss</strong> &mdash; Hansen/UMD/Google/USGS/NASA, accessed via <a href="https://www.globalforestwatch.org/" target="_blank" rel="noopener">Global Forest Watch</a> and <a href="https://worldrainforests.com/deforestation/archive/Malaysia.htm" target="_blank" rel="noopener">Mongabay / worldrainforests.com</a>. 30% canopy-cover threshold.</li>
+          <li><strong>Threatened species</strong> &mdash; <a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">IUCN Red List of Threatened Species</a> (2024); national figures compiled via Statista.</li>
+          <li><strong>Species richness</strong> &mdash; <a href="https://www.mybis.gov.my/" target="_blank" rel="noopener">Malaysia Biodiversity Information System (MyBIS)</a>; 5th National Report to the Convention on Biological Diversity.</li>
+          <li><strong>Tiger &amp; populations</strong> &mdash; <a href="https://www.wwf.org.my/" target="_blank" rel="noopener">WWF-Malaysia</a>; 2020 National Tiger Survey (DWNP &amp; partners).</li>
+          <li><strong>Protected areas</strong> &mdash; <a href="https://www.wildlife.gov.my/en/" target="_blank" rel="noopener">Dept. of Wildlife &amp; National Parks (PERHILITAN)</a>, <a href="https://www.sabahparks.org.my/" target="_blank" rel="noopener">Sabah Parks</a>, <a href="https://sarawakforestry.com/" target="_blank" rel="noopener">Sarawak Forestry Corporation</a>.</li>
+          <li><strong>Wildlife trade</strong> &mdash; <a href="https://www.traffic.org/" target="_blank" rel="noopener">TRAFFIC</a>, compiled via malaysianwildlife.org.</li>
+          <li><strong>State boundaries</strong> &mdash; <a href="https://gadm.org/" target="_blank" rel="noopener">GADM</a> / <a href="https://github.com/codeforgermany/click_that_hood" target="_blank" rel="noopener">click_that_hood</a> (GeoJSON).</li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the data</h4>
+        <p>&ldquo;Tree-cover loss&rdquo; counts the removal of tree canopy taller than five metres from both natural forest and plantations; it is not identical to permanent deforestation. &ldquo;Primary forest&rdquo; refers to undisturbed old-growth. Figures combine two primary sources &mdash; Global Forest Watch (forests) and the IUCN Red List (species) &mdash; with supplementary government and NGO records.</p>
+        <h4 style="margin-top:22px">Chart specifications</h4>
+        <p>All charts are built in Vega-Lite. The human-readable JSON specification for every chart is available in the <code>/specs</code> folder of this repository, and the underlying data in <code>/data</code>.</p>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <p><strong>Jia Zhuofan</strong> &middot; Student ID 35830506 &middot; Studio Session 01<br>
+      FIT2179 Data Visualisation &mdash; Assignment 2 &middot; Monash University Malaysia &middot; 2026</p>
+      <p style="margin-top:14px"><strong>Use of generative AI:</strong> This project used Anthropic's Claude to assist with sourcing public datasets, generating and debugging the Vega-Lite specifications, and drafting the page layout and narrative copy. All data figures were taken from the cited public sources; all analytical and design decisions were reviewed and verified by the author.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const SHARED_CONFIG = {
+    background: null,
+    font: "Spectral",
+    title: {font:"Fraunces", color:"#1c2b21", fontWeight:600, anchor:"start", subtitleColor:"#5b6b5f", subtitleFont:"Spectral"},
+    axis: {labelFont:"Spectral", titleFont:"Spectral", labelColor:"#5b6b5f", titleColor:"#3a4a3f",
+           titleFontWeight:600, gridColor:"#ece6d8", domainColor:"#cdd3c4", tickColor:"#cdd3c4",
+           labelFontSize:11, titleFontSize:12, titlePadding:8},
+    legend: {labelFont:"Spectral", titleFont:"Spectral", labelColor:"#3a4a3f", titleColor:"#3a4a3f",
+             titleFontWeight:600, labelFontSize:11, titleFontSize:12},
+    view: {stroke: null}
+  };
+
+  const CHARTS = [
+    ["v01","specs/01_species_richness.json"],
+    ["v02","specs/02_map_forest_loss.json"],
+    ["v03","specs/03_loss_annual.json"],
+    ["v04","specs/04_heatmap.json"],
+    ["v05","specs/05_loss_by_region.json"],
+    ["v06","specs/06_tiger_decline.json"],
+    ["v07","specs/07_iucn_status.json"],
+    ["v08","specs/08_species_populations.json"],
+    ["v09","specs/09_tiger_isotype.json"],
+    ["v10","specs/10_map_parks.json"],
+    ["v11","specs/11_park_sizes.json"],
+    ["v12","specs/12_wildlife_trade.json"]
+  ];
+
+  CHARTS.forEach(([id,url])=>{
+    fetch(url)
+      .then(r=>{ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+      .then(spec=> vegaEmbed("#"+id, spec, {actions:false, renderer:"svg", config:SHARED_CONFIG}))
+      .catch(err=>{
+        document.getElementById(id).innerHTML =
+          "<p style='color:#9e2a17;font-size:14px'>Chart failed to load. If viewing locally, run a local web server (e.g. <code>python3 -m http.server</code>); on GitHub Pages it loads normally.</p>";
+        console.error(url, err);
+      });
+  });
+
+  // entrance animation
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll(".fade").forEach((el,i)=>{
+    el.style.transitionDelay = Math.min(i*40,240)+"ms";
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
